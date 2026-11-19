@@ -1,0 +1,361 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Little World For You ❤️</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Georgia, serif;
+    background: #fff0f5;
+    color: #704b59;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+section {
+    padding: 65px 20px;
+}
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #ffe0eb, #fff4ed, #f4e5ff);
+}
+
+h1 {
+    font-size: 36px;
+    margin: 20px 0;
+}
+
+h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+p {
+    line-height: 1.8;
+    margin: 12px auto;
+    max-width: 550px;
+}
+
+.bears {
+    font-size: 75px;
+    margin: 20px;
+}
+
+button {
+    background: #e88ca9;
+    border: none;
+    padding: 13px 25px;
+    border-radius: 30px;
+    color: white;
+    font-size: 16px;
+    margin: 12px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #d66d91;
+    transform: scale(1.05);
+}
+
+.card {
+    background: white;
+    max-width: 550px;
+    margin: 25px auto;
+    padding: 30px;
+    border-radius: 22px;
+    box-shadow: 0 5px 20px #e9bdcd;
+}
+
+.letter {
+    display: none;
+    text-align: left;
+    line-height: 2;
+}
+
+.memory {
+    background: #fff;
+    border-radius: 18px;
+    padding: 20px;
+    margin: 15px auto;
+    max-width: 300px;
+}
+
+.memory img {
+    width: 100%;
+    border-radius: 12px;
+    min-height: 150px;
+    object-fit: cover;
+}
+
+.note {
+    font-size: 20px;
+    min-height: 90px;
+    padding: 15px;
+}
+
+footer {
+    padding: 30px;
+    background: #f8d8e4;
+}
+
+.hidden {
+    display: none;
+}
+
+#quizResult {
+    font-weight: bold;
+    margin: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- WELCOME SCREEN -->
+<section class="hero" id="home">
+
+<div class="bears">🐻‍❄️💕🐻</div>
+
+<h1>A Little World Made For You</h1>
+
+<p>
+In a world full of people, I'm glad my world has you.
+</p>
+
+<p>Someone has a little surprise for you... 💌</p>
+
+<button onclick="openSurprise()">
+OPEN YOUR SURPRISE 💗
+</button>
+
+</section>
+
+<!-- LOVE LETTER -->
+<section id="letterSection">
+
+<h2>💌 A Letter For My Favourite Person</h2>
+
+<div class="bears">🧸💗</div>
+
+<div class="card">
+
+<button onclick="showLetter()">
+OPEN YOUR LETTER
+</button>
+
+<div class="letter" id="loveLetter">
+
+Dear You,
+
+Happy Men's Day to my favourite human! ❤️
+
+I don't think you realise how special you are to me.
+You make ordinary moments beautiful, and even on difficult days,
+you manage to bring a smile to my face.
+
+I hope you never doubt how much you matter.
+You deserve happiness, kindness, success and all the love
+this world has to offer.
+
+Thank you for being you.
+I am so lucky to have you in my little world.
+
+Keep smiling, keep growing, and never forget that
+someone is always cheering for you.
+
+With lots of love,
+Your favourite person ❤️
+
+</div>
+</div>
+
+</section>
+
+<!-- MINI GAME -->
+<section id="game">
+
+<h2>🎮 How Well Do You Know Us?</h2>
+
+<div class="card">
+
+<p id="question">Who is more dramatic? 😂</p>
+
+<button onclick="answer('me')">ME</button>
+<button onclick="answer('you')">YOU</button>
+
+<p id="quizResult"></p>
+
+</div>
+
+</section>
+
+<!-- MEMORIES -->
+<section id="memories">
+
+<h2>📸 Our Little Memory Lane</h2>
+
+<p>Some moments deserve to be kept forever.</p>
+
+<div class="memory">
+<img src="https://placehold.co/400x300/ffe0eb/704b59?text=Our+First+Memory"
+alt="Memory one">
+<p>Our first favourite memory ❤️</p>
+</div>
+
+<div class="memory">
+<img src="https://placehold.co/400x300/f8d8e4/704b59?text=Our+Special+Day"
+alt="Memory two">
+<p>A day I would love to relive.</p>
+</div>
+
+<div class="memory">
+<img src="https://placehold.co/400x300/f4e5ff/704b59?text=My+Favourite+Human"
+alt="Memory three">
+<p>My favourite human, always! 🧸</p>
+</div>
+
+<p>You can replace these pictures with your own photos later!</p>
+
+</section>
+
+<!-- LOVE NOTE MACHINE -->
+<section id="notes">
+
+<h2>🎁 A Little Love Machine</h2>
+
+<p>Click below to receive a random reason why you're special.</p>
+
+<div class="card">
+
+<div class="bears">🐻💕🐻‍❄️</div>
+
+<div class="note" id="randomNote">
+Your surprise is waiting...
+</div>
+
+<button onclick="generateNote()">
+GIVE ME A LOVE NOTE 💌
+</button>
+
+</div>
+
+</section>
+
+<!-- FINAL SURPRISE -->
+<section id="final">
+
+<h2>One Last Thing... ❤️</h2>
+
+<div class="bears">🧸🤗🧸</div>
+
+<p>
+If I could give you one thing in life,
+I would give you the ability to see yourself through my eyes.
+Then you'd understand how special you are to me.
+</p>
+
+<button onclick="hugSurprise()">
+ONE LAST HUG? 🤗
+</button>
+
+<h2 id="hugMessage"></h2>
+
+</section>
+
+<footer>
+Made with endless love ❤️
+<br>
+Especially for you, my favourite boy.
+<br>
+Happy Men's Day! 🧸
+</footer>
+
+<script>
+
+function openSurprise() {
+    document.getElementById("letterSection")
+    .scrollIntoView({behavior: "smooth"});
+}
+
+function showLetter() {
+    document.getElementById("loveLetter")
+    .style.display = "block";
+}
+
+let questions = [
+    "Who is more dramatic? 😂",
+    "Who is more clingy? 💗",
+    "Who says sorry first? 🥺",
+    "Who is more naughty? 😜"
+];
+
+let questionIndex = 0;
+
+function answer(choice) {
+    let result = document.getElementById("quizResult");
+
+    let messages = [
+        "Haha! We both know the answer! 😂",
+        "No matter who, we both love attention! 💕",
+        "A little fight, a little sorry, and lots of love!",
+        "Caught you! 😜"
+    ];
+
+    result.innerText = messages[questionIndex];
+
+    questionIndex++;
+
+    if (questionIndex < questions.length) {
+        document.getElementById("question")
+        .innerText = questions[questionIndex];
+    } else {
+        document.getElementById("question")
+        .innerText = "And the winner of my heart is... YOU! ❤️";
+
+        document.querySelectorAll("#game button")
+        .forEach(button => button.style.display = "none");
+    }
+}
+
+let notes = [
+    "You make my ordinary days special. ❤️",
+    "Your smile is one of my favourite things.",
+    "I'm always rooting for you.",
+    "You deserve the whole world.",
+    "You are my favourite notification. 💗",
+    "I would choose you in every lifetime.",
+    "Never stop being the wonderful person you are.",
+    "You are loved more than you know. 🧸"
+];
+
+function generateNote() {
+    let random = Math.floor(Math.random() * notes.length);
+
+    document.getElementById("randomNote")
+    .innerText = notes[random];
+}
+
+function hugSurprise() {
+    document.getElementById("hugMessage")
+    .innerText = "SQUEEEEZE! Sending you a million hugs! 🤗💕";
+}
+
+</script>
+
+</body>
+  </html>
+  
